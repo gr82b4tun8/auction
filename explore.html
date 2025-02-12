@@ -3,20 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Homepage</title>
+  <title>Explore Live Auctions</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script> <!-- Lucide Icons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script> <!-- GSAP for animations -->
 </head>
 <body>
-  <div class="homepage">
-    <h1>Welcome to the Homepage</h1>
-    <p>This is the homepage of the art auction website.</p>
-    <a href="index.html" class="home-button">
-      <i data-lucide="arrow-left"></i> Back to Explore
+  <div class="explore-page">
+    <h1>Explore Live Auctions</h1>
+    <!-- Home Button -->
+    <a href="homepage.html" class="home-button">
+      <i data-lucide="home"></i> Home
     </a>
+    <!-- Auction Listings Container -->
+    <div class="artworks-container" id="artworks-container">
+      <!-- Auction listings will be dynamically added here -->
+    </div>
   </div>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script>
-    lucide.createIcons();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
