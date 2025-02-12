@@ -1,0 +1,123 @@
+/* Existing CSS */
+body {
+  background-color: black;
+  color: white;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.explore-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Home Button Styles */
+.home-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #2f7a64;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+  background-color: #1f5a4a;
+}
+
+.home-button i {
+  width: 20px;
+  height: 20px;
+}
+
+/* Rest of the CSS */
+.artworks-container {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow-y: auto;
+  height: 80vh;
+}
+
+.artwork-card {
+  background-color: #1a1a1a;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.artwork-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.artwork-details {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.artist-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.current-bid {
+  color: #2f7a64;
+  font-size: 0.875rem;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 8px;
+}
+
+.button {
+  background-color: #2f7a64;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon-button {
+  background-color: #4a4a4a;
+  padding: 8px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.icon-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+.absolute-buttons {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
+}
