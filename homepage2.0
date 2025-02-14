@@ -1,88 +1,105 @@
-import React from "react";
-import { Search, Gavel, Clock, Filter } from "lucide-react";
-import { Button } from "@/components/ui/button";
-
-const auctions = [
-  {
-    id: 1,
-    title: "Classic 1967 Mustang",
-    image: "https://via.placeholder.com/400",
-    currentBid: "$25,000",
-    timeLeft: "2h 15m",
-  },
-  {
-    id: 2,
-    title: "2020 Tesla Model 3",
-    image: "https://via.placeholder.com/400",
-    currentBid: "$38,500",
-    timeLeft: "4h 10m",
-  },
-  {
-    id: 3,
-    title: "Porsche 911 Turbo S",
-    image: "https://via.placeholder.com/400",
-    currentBid: "$120,000",
-    timeLeft: "1d 3h",
-  },
-];
-
-const AuctionHomePage = () => {
-  return (
-    <div className="bg-black text-white min-h-screen">
-      {/* Navigation */}
-      <nav className="bg-gray-900 p-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-[#2f7a64]">Art Auctions</h1>
-        <div className="flex gap-4">
-          <input
-            type="text"
-            placeholder="Search auctions..."
-            className="bg-gray-800 text-white px-4 py-2 rounded-lg outline-none"
-          />
-          <Button className="bg-[#2f7a64] text-white px-4 py-2">
-            <Search size={18} />
-          </Button>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section className="relative h-96 flex flex-col justify-center items-center text-center bg-gray-800 p-6">
-        <h2 className="text-4xl font-bold">Find Exclusive Art Auctions</h2>
-        <p className="text-lg text-gray-300 max-w-xl">Bid on stunning artwork from top artists and collectors worldwide.</p>
-        <Button className="mt-4 bg-[#2f7a64] text-white px-6 py-3 rounded-lg font-semibold shadow-lg">
-          View Auctions
-        </Button>
-      </section>
-
-      {/* Auctions Section */}
-      <section className="p-6">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-3xl font-semibold">Live Auctions</h2>
-          <Button className="bg-gray-800 px-4 py-2 rounded-lg flex items-center gap-2">
-            <Filter size={18} /> Filters
-          </Button>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {auctions.map((auction) => (
-            <div key={auction.id} className="bg-gray-900 rounded-2xl overflow-hidden shadow-lg">
-              <img src={auction.image} alt={auction.title} className="w-full h-64 object-cover" />
-              <div className="p-4">
-                <h3 className="text-xl font-bold">{auction.title}</h3>
-                <div className="flex justify-between items-center mt-3">
-                  <span className="text-[#2f7a64] text-lg font-semibold">{auction.currentBid}</span>
-                  <Button className="bg-[#2f7a64] text-white px-4 py-2 rounded-lg">
-                    <Gavel size={16} className="inline mr-1" /> Bid Now
-                  </Button>
-                </div>
-                <div className="flex items-center text-gray-400 mt-2">
-                  <Clock size={16} className="mr-1" /> {auction.timeLeft} left
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auction Homepage</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #333;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar input {
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+        }
+        .hero {
+            text-align: center;
+            background-color: #444;
+            padding: 50px 20px;
+        }
+        .hero button, .auction button {
+            background-color: #2f7a64;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .auction-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .auction {
+            background-color: #222;
+            margin: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+        .auction img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1 style="color: #2f7a64;">Art Auctions</h1>
+        <input type="text" placeholder="Search auctions...">
     </div>
-  );
-};
+    <div class="hero">
+        <h2>Find Exclusive Art Auctions</h2>
+        <p>Bid on stunning artwork from top artists and collectors worldwide.</p>
+        <button onclick="alert('Viewing Auctions...')">View Auctions</button>
+    </div>
+    <div class="auction-container" id="auction-list">
+        <!-- Auctions will be added dynamically here -->
+    </div>
 
-export default AuctionHomePage;
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const auctions = [
+                { id: 1, title: "Classic 1967 Mustang", image: "https://via.placeholder.com/400", currentBid: "$25,000", timeLeft: "2h 15m" },
+                { id: 2, title: "2020 Tesla Model 3", image: "https://via.placeholder.com/400", currentBid: "$38,500", timeLeft: "4h 10m" },
+                { id: 3, title: "Porsche 911 Turbo S", image: "https://via.placeholder.com/400", currentBid: "$120,000", timeLeft: "1d 3h" }
+            ];
+
+            const auctionContainer = document.getElementById("auction-list");
+            if (!auctionContainer) {
+                console.error("Error: Could not find auction list container.");
+                return;
+            }
+
+            auctions.forEach(auction => {
+                const auctionDiv = document.createElement("div");
+                auctionDiv.classList.add("auction");
+                auctionDiv.innerHTML = `
+                    <img src="${auction.image}" alt="${auction.title}">
+                    <h3>${auction.title}</h3>
+                    <p>Current Bid: <span style="color: #2f7a64; font-weight: bold;">${auction.currentBid}</span></p>
+                    <p>Time Left: ${auction.timeLeft}</p>
+                    <button onclick="alert('Bid placed on ${auction.title}')">Bid Now</button>
+                `;
+                auctionContainer.appendChild(auctionDiv);
+            });
+        });
+    </script>
+</body>
+</html>
