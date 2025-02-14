@@ -1,104 +1,46 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auction Homepage</title>
-    <style>
-        body {
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .navbar {
-            background-color: #333;
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .navbar input {
-            padding: 8px;
-            border-radius: 5px;
-            border: none;
-        }
-        .hero {
-            text-align: center;
-            background-color: #444;
-            padding: 50px 20px;
-        }
-        .hero button, .auction button {
-            background-color: #2f7a64;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .auction-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 20px;
-        }
-        .auction {
-            background-color: #222;
-            margin: 15px;
-            padding: 15px;
-            border-radius: 10px;
-            width: 300px;
-            text-align: center;
-        }
-        .auction img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auction Homepage</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="navbar">
-        <h1 style="color: #2f7a64;">Art Auctions</h1>
-        <input type="text" placeholder="Search auctions...">
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo">
+      <a href="#">AuctionSite</a>
     </div>
-    <div class="hero">
-        <h2>Find Exclusive Art Auctions</h2>
-        <p>Bid on stunning artwork from top artists and collectors worldwide.</p>
-        <button onclick="alert('Viewing Auctions...')">View Auctions</button>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Auctions</a></li>
+      <li><a href="#">Sell</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <h1>Welcome to AuctionSite</h1>
+    <p>Your destination for exclusive auctions.</p>
+    <a href="#" class="btn">Explore Auctions</a>
+  </header>
+
+  <!-- Auction Listings -->
+  <section class="auction-listings">
+    <h2>Featured Auctions</h2>
+    <div class="listings-grid" id="listings-grid">
+      <!-- Auction items will be dynamically added here -->
     </div>
-    <div class="auction-container" id="auction-list">
-        <!-- Auctions will be added dynamically here -->
-    </div>
+  </section>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const auctions = [
-                { id: 1, title: "Classic 1967 Mustang", image: "https://via.placeholder.com/400", currentBid: "$25,000", timeLeft: "2h 15m" },
-                { id: 2, title: "2020 Tesla Model 3", image: "https://via.placeholder.com/400", currentBid: "$38,500", timeLeft: "4h 10m" },
-                { id: 3, title: "Porsche 911 Turbo S", image: "https://via.placeholder.com/400", currentBid: "$120,000", timeLeft: "1d 3h" }
-            ];
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2023 AuctionSite. All rights reserved.</p>
+  </footer>
 
-            const auctionContainer = document.getElementById("auction-list");
-            if (!auctionContainer) {
-                console.error("Error: Could not find auction list container.");
-                return;
-            }
-
-            auctions.forEach(auction => {
-                const auctionDiv = document.createElement("div");
-                auctionDiv.classList.add("auction");
-                auctionDiv.innerHTML = `
-                    <img src="${auction.image}" alt="${auction.title}">
-                    <h3>${auction.title}</h3>
-                    <p>Current Bid: <span style="color: #2f7a64; font-weight: bold;">${auction.currentBid}</span></p>
-                    <p>Time Left: ${auction.timeLeft}</p>
-                    <button onclick="alert('Bid placed on ${auction.title}')">Bid Now</button>
-                `;
-                auctionContainer.appendChild(auctionDiv);
-            });
-        });
-    </script>
+  <script src="script.js"></script>
 </body>
 </html>
