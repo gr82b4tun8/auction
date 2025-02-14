@@ -66,3 +66,64 @@ artworks.forEach((art) => {
 
 // Initialize Lucide Icons
 lucide.createIcons();
+
+// Sample auction data
+const auctions = [
+  {
+    id: 1,
+    title: "2020 Tesla Model 3",
+    image: "https://via.placeholder.com/300",
+    description: "Low mileage, excellent condition.",
+    price: "$35,000",
+  },
+  {
+    id: 2,
+    title: "2018 Porsche 911",
+    image: "https://via.placeholder.com/300",
+    description: "Fully loaded, pristine condition.",
+    price: "$85,000",
+  },
+  {
+    id: 3,
+    title: "2022 Ford Mustang GT",
+    image: "https://via.placeholder.com/300",
+    description: "Brand new, never driven.",
+    price: "$45,000",
+  },
+  {
+    id: 4,
+    title: "2019 BMW M5",
+    image: "https://via.placeholder.com/300",
+    description: "High performance, luxury sedan.",
+    price: "$70,000",
+  },
+];
+
+// Function to create auction cards
+function createAuctionCard(auction) {
+  const card = document.createElement("div");
+  card.classList.add("listing-card");
+
+  card.innerHTML = `
+    <img src="${auction.image}" alt="${auction.title}">
+    <div class="details">
+      <h3>${auction.title}</h3>
+      <p>${auction.description}</p>
+      <p class="price">${auction.price}</p>
+    </div>
+  `;
+
+  return card;
+}
+
+// Function to render auction listings
+function renderAuctionListings() {
+  const listingsGrid = document.getElementById("listings-grid");
+  auctions.forEach((auction) => {
+    const card = createAuctionCard(auction);
+    listingsGrid.appendChild(card);
+  });
+}
+
+// Render auction listings on page load
+document.addEventListener("DOMContentLoaded", renderAuctionListings);
